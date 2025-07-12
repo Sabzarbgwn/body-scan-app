@@ -1,0 +1,14 @@
+workflows:
+  android-app:
+    name: Build Android APK (no signing)
+    max_build_duration: 60
+    environment:
+      vars:
+        JAVA_VERSION: 17
+    scripts:
+      - name: Build APK
+        script: |
+          cd android
+          ./gradlew assembleDebug
+    artifacts:
+      - android/app/build/outputs/**/*.apk
